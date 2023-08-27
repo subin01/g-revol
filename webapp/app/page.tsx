@@ -1,13 +1,12 @@
-import Image from 'next/image'
-import styles from './page.module.css'
-import Auth from '../components/Auth';
+import Image from "next/image";
+import styles from "./page.module.css";
+import User from "../components/User";
 
 export default function Home() {
   return (
     <main className={styles.main}>
-        <Auth/>
-        <h1>Welcome!</h1>
-
+      <h1>G Revolution!</h1>
+      <User />
     </main>
-  )
+  );
 }

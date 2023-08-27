@@ -21,5 +21,8 @@
     "react-firebase-hooks": "^5.1.1",
     "typescript": "5.2.2",
     "valtio": "^1.11.2"
+  },
+  "devDependencies": {
+    "eslint-plugin-valtio": "^0.6.2"
   }
 }

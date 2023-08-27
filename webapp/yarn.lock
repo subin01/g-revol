@@ -1245,6 +1245,11 @@ eslint-plugin-react@^7.31.7:
     semver "^6.3.1"
     string.prototype.matchall "^4.0.8"
 
+eslint-plugin-valtio@^0.6.2:
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-valtio/-/eslint-plugin-valtio-0.6.2.tgz#b66791b3b6c5964a1736c6a75106355e8cfb63be"
+  integrity sha512-7U870y+gjL6xsiwPyMcUFHFbrMPk2t02X6V4VF5rSDi0f3A/uQDqAVvsY7m035plKW0Ke2i1aRch4tNWtnRqLA==
+
 eslint-scope@^7.2.2:
   version "7.2.2"
   resolved "https://registry.yarnpkg.com/eslint-scope/-/eslint-scope-7.2.2.tgz#deb4f92563390f32006894af62a22dba1c46423f"
