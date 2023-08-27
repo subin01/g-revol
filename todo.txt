@@ -1,0 +1,2 @@
+1. Clerk as provider
+2. NextAuth:  https://www.youtube.com/watch?v=vUm-YIEbl7E&list=PLncPs6Oyr6mZ7r3qw1b4ukIgJTemJAu_X&index=3
