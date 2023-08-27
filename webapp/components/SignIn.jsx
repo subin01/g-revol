@@ -3,8 +3,8 @@
 import { auth, googleProvider } from "../firebase/init";
 import {
   createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
   signInWithPopup,
-  signOut,
 } from "firebase/auth";
 import { useState } from "react";
 
@@ -16,9 +16,16 @@ export default function SignIn() {
   // console.log("AUTH: ", auth?.currentUser?.email);
   // console.log(auth?.currentUser?.photoURL);
 
-  const signIn = async () => {
+  const signUp = async () => {
     try {
       await createUserWithEmailAndPassword(auth, email, password);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+  const signIn = async () => {
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
     } catch (err) {
       console.error(err);
     }

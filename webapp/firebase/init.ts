@@ -63,6 +63,7 @@ let store = proxy({
 });
 
 onAuthStateChanged(auth, (firebaseUser) => {
+  // @ts-ignore
   store.currentUser = firebaseUser || null;
 });
 
