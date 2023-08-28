@@ -1,10 +1,10 @@
 "use client";
 
-import { store } from "../firebase/init";
+import { store } from "../../firebase/init";
+
 import { snapshot, useSnapshot } from "valtio";
 
 import SignIn from "./SignIn";
-import SignOut from "./SignOut";
 
 export default function User() {
   let snap = useSnapshot(store);
@@ -14,21 +14,10 @@ export default function User() {
   if (snap.currentUser === "unknown") {
     return (
       <div>
-        <h1>Loading...</h1>
+        <h3>User Loading...</h3>
       </div>
     );
   }
 
-  return (
-    <div>
-      {user ? (
-        <>
-          <h1>Welcome, {user}</h1>
-          <SignOut />
-        </>
-      ) : (
-        <SignIn></SignIn>
-      )}
-    </div>
-  );
+  return <div>{user ? <h3>Welcome, {user}</h3> : <SignIn></SignIn>}</div>;
 }

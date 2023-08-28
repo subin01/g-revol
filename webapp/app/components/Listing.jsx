@@ -1,6 +1,6 @@
 "use client";
 
-import { db } from "../firebase/init";
+import { db } from "../../firebase/init";
 import { collection } from "firebase/firestore";
 import { useCollection } from "react-firebase-hooks/firestore";
 
@@ -14,12 +14,12 @@ export default function Listing() {
       {error && <strong>Error: {JSON.stringify(error)}</strong>}
       {loading && <span>Collection: Loading...</span>}
       {value && (
-        <span>
-          Collection:{" "}
+        <div>
+          Collection: <br />
           {value.docs.map((doc) => (
-            <span key={doc.id}>{JSON.stringify(doc.data())}, </span>
+            <pre key={doc.id}>{JSON.stringify(doc.data())}, </pre>
           ))}
-        </span>
+        </div>
       )}
     </div>
   );

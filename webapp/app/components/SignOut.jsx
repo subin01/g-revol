@@ -1,9 +1,9 @@
 "use client";
 
-import { auth } from "../firebase/init";
+import { auth, googleProvider } from "../../firebase/init";
 import { signOut } from "firebase/auth";
 
-export default function SignOut({ user }) {
+export default function SignOut() {
   const logOut = async () => {
     try {
       await signOut(auth);
@@ -12,5 +12,5 @@ export default function SignOut({ user }) {
     }
   };
 
-  return <button onClick={logOut}> logOut</button>;
+  return <button onClick={logOut}>Log Out</button>;
 }
