@@ -1,6 +1,7 @@
 import { UserButton } from "@clerk/nextjs";
 import Image from "next/image";
 import styles from "./page.module.css";
+import Listing from "@/app/components/Listing";
 
 export default function Home() {
   return (
@@ -13,6 +14,8 @@ export default function Home() {
       </header>
       <main>
         <h1>Home page</h1>
+
+        <Listing />
       </main>
     </>
   );
