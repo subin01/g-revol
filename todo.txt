@@ -1,2 +1,4 @@
-1. Clerk as provider
+1. Clerk as provider https://clerk.com/docs/integrations/databases/firebase
 2. NextAuth:  https://www.youtube.com/watch?v=vUm-YIEbl7E&list=PLncPs6Oyr6mZ7r3qw1b4ukIgJTemJAu_X&index=3
+3. Clean as custom auth : https://firebase.google.com/docs/auth/web/custom-auth
+4. Okta 
