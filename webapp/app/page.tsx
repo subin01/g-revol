@@ -6,7 +6,7 @@ import Link from "next/link";
 import Header from "@/app/components/Header";
 import data from "@/app/data.json";
 
-function Item({ project }) {
+function Item({ project }: { project: any }) {
   const size = "400/400";
   return (
     <article>
@@ -19,7 +19,19 @@ function Item({ project }) {
   );
 }
 
-function Goal({ goal }) {
+interface IProject {
+  id: string;
+  title: string;
+  image: string;
+}
+
+interface IGoal {
+  id: string;
+  title: string;
+  projects: IProject[];
+}
+
+function Goal({ goal }: { goal: IGoal }) {
   return (
     <section>
       <h2>

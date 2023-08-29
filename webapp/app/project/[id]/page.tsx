@@ -4,12 +4,24 @@ import Link from "next/link";
 import data from "@/app/data.json";
 import Header from "@/app/components/Header";
 
-function Item({ project }) {
+interface IProject {
+  id: string;
+  title: string;
+  image: string;
+}
+
+interface IGoal {
+  id: string;
+  title: string;
+  projects: IProject[];
+}
+
+function Item({ project }: { project: IProject }) {
   const size = "1200/1200";
 
   return (
     <article>
-      <img width="600" height="600" src={`${project.image}${size}`} />
+      <img width="600" height="600" src={`${project.image}${size}`} alt="" />
       <ul>
         <li>
           <h3>Impact Project: {project.title}</h3>
@@ -22,30 +34,18 @@ function Item({ project }) {
   );
 }
 
-function Goal({ goal }) {
-  return (
-    <section>
-      <h2>
-        {goal.id}&nbsp;&nbsp;&nbsp;{goal.title}
-      </h2>
-      <div>
-        {goal.list.map((item, i) => (
-          <Item key={i} item={item} />
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function getProject(goals, id) {
-  const projects = [];
+function getProject(goals: any, id: string) {
+  const projects: any = [];
+  // @ts-ignore
   goals.forEach((g) => projects.push(...g.projects));
+  // @ts-ignore
   return projects.find((p) => p.id == id);
 }
 
-export default function Page({ params }) {
+export default function Page({ params }: { params: { id: string } }) {
   const { id } = params;
-  const project = getProject(data.goals, 1);
+  const project = getProject(data.goals, id);
+
   if (!project) return <h1>404</h1>;
 
   return (
