@@ -2,6 +2,7 @@ import styles from "/styles/Shared.module.css";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
 import React from "react";
 import Link from "next/link";
+import Listing from "../components/Listing";
 
 const ClerkFeatures = () => (
   <Link href="/user" className={styles.cardContent}>
@@ -200,6 +201,7 @@ const Footer = () => (
 const Home = () => (
   <div className={styles.container}>
     <Main />
+    <Listing />
     <Footer />
   </div>
 );
