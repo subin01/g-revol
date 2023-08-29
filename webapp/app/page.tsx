@@ -3,7 +3,7 @@ import styles from "./page.module.css";
 import { UserButton, SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
 import Link from "next/link";
 
-import Header from "@/app/components/header";
+import Header from "@/app/components/Header";
 import data from "@/app/data.json";
 
 function Item({ project }) {

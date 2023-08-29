@@ -2,7 +2,7 @@ import { UserButton, SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
 import Link from "next/link";
 
 import data from "@/app/data.json";
-import Header from "@/app/components/header";
+import Header from "@/app/components/Header";
 
 function Item({ project }) {
   const size = "1200/1200";
