@@ -1,0 +1,34 @@
+.header {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px) saturate(150%);
+  opacity: 0.9;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 5rem; // 100px
+  padding-inline: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  > div {
+    width: var(--max-width);
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: url("/Crypto G Black.svg") no-repeat;
+  background-size: 4rem;
+  height: 4rem;
+  width: auto;
+  padding-left: 5rem;
+  font-weight: var(--font-weight-bold);
+}

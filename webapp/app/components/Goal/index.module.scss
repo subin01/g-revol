@@ -1,0 +1,28 @@
+.goal {
+  margin-bottom: var(--spacing-6);
+  .heading {
+    display: flex;
+    gap: var(--spacing-3);
+  }
+
+  .imageWrap {
+    overflow: hidden;
+    border-radius: 0.25rem;
+    width: 20rem;
+    height: 20rem;
+
+    img {
+      transition: scale cubic-bezier(0, 0, 0.2, 1) 500ms;
+    }
+  }
+
+  article:hover {
+    img {
+      scale: 1.2;
+    }
+  }
+
+  a {
+    width: 100%;
+  }
+}

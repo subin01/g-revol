@@ -1,7 +1,22 @@
 import "./globals.scss";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-const inter = Inter({ subsets: ["latin"] });
+import localFont from "next/font/local";
+const myFont = localFont({
+  src: [
+    {
+      path: "./styles/HelveticaNowDisplay-Medium.woff2",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "./styles/HelveticaNowDisplay-Bold.woff2",
+      weight: "700",
+      style: "italic",
+    },
+  ],
+});
+// import { Inter } from "next/font/google";
+// const inter = Inter({ subsets: ["latin"] });
 
 import { ClerkProvider } from "@clerk/nextjs";
 
@@ -18,7 +33,7 @@ export default function RootLayout({
   return (
     <ClerkProvider publishableKey="pk_test_dmlhYmxlLWdob3VsLTMyLmNsZXJrLmFjY291bnRzLmRldiQ">
       <html lang="en">
-        <body className={inter.className}>{children}</body>
+        <body className={myFont.className}>{children}</body>
       </html>
     </ClerkProvider>
   );
