@@ -1,27 +1,29 @@
 import Image from "next/image";
-import {
-  UserButton,
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  SignOutButton,
-} from "@clerk/nextjs";
+import { UserButton, SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
 import User from "@/app/components/User";
 import Listing from "@/app/components/Listing";
 import InitSignInWithClerk from "@/app/components/InitSignInWithClerk";
 import SignInFirebaseWithClerk from "@/app/components/SignInFirebaseWithClerk";
 import SignOut from "@/app/components/SignOut";
 
-export default function AccountPage() {
+export default function Account() {
   return (
     <main>
-      {/* <User /> */}
-      {/* <SignInFirebaseWithClerk /> */}
       <InitSignInWithClerk />
+      <br />
+      <SignInFirebaseWithClerk />
       <hr />
-      {/* <SignOut /> */}
-      <SignOutButton />
 
+      {/* <SignedIn>
+       <UserButton afterSignOutUrl="/" /> 
+        </SignedIn>
+      <SignedOut>
+        <SignInButton />
+      </SignedOut> */}
+
+      <User />
+      <hr />
+      <SignOut />
       <hr />
 
       <Listing />

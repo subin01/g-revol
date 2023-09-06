@@ -1,6 +1,11 @@
-import "./globals.scss";
+import { Suspense } from "react";
 import type { Metadata } from "next";
+import { ClerkProvider } from "@clerk/nextjs";
+
+import "./globals.scss";
 import localFont from "next/font/local";
+import Header from "./components/Header";
+
 const myFont = localFont({
   src: [
     {
@@ -15,10 +20,6 @@ const myFont = localFont({
     },
   ],
 });
-// import { Inter } from "next/font/google";
-// const inter = Inter({ subsets: ["latin"] });
-
-import { ClerkProvider } from "@clerk/nextjs";
 
 export const metadata: Metadata = {
   title: "G Revolution - Good Empire",
@@ -33,7 +34,12 @@ export default function RootLayout({
   return (
     <ClerkProvider publishableKey="pk_test_dmlhYmxlLWdob3VsLTMyLmNsZXJrLmFjY291bnRzLmRldiQ">
       <html lang="en">
-        <body className={myFont.className}>{children}</body>
+        <body className={myFont.className}>
+          <Suspense>
+            <Header />
+          </Suspense>
+          {children}
+        </body>
       </html>
     </ClerkProvider>
   );
