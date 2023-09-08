@@ -33,7 +33,7 @@ export default function Actions({ uid, displayName }) {
       {error && (
         <div>
           <pre>Error: {JSON.stringify(error)}</pre>
-          <a href=".">Try again</a>
+          <a href="/account">Try again</a>
         </div>
       )}
       {loading && <span>Loading...</span>}
@@ -43,34 +43,46 @@ export default function Actions({ uid, displayName }) {
       <ol>
         {user &&
           user.actions &&
-          Object.values(user.actions).map((a) => (
-            <li key={a.aid}>
-              <div>
-                {/* <span>{a.aid}</span> */}
-                <span>{a.title}</span> -{" "}
-                <span className={styles.status}>{a.status}</span>
-                {a.status === "completed" ? (
-                  <button
-                    className="button"
-                    data-size="small"
-                    onClick={() =>
-                      handleStatusUpdateClick(a.aid, "in progress")
-                    }
-                  >
-                    Mark as In Progress
-                  </button>
-                ) : (
-                  <button
-                    className="button"
-                    data-size="small"
-                    onClick={() => handleStatusUpdateClick(a.aid, "completed")}
-                  >
-                    Mark as Completed
-                  </button>
-                )}
-              </div>
-            </li>
-          ))}
+          Object.keys(user.actions)
+            .sort()
+            .map((k) => {
+              let a = user.actions[k];
+              return (
+                <li
+                  key={k}
+                  className={
+                    a.status === "completed" ? `${styles.completed}` : ""
+                  }
+                >
+                  <div>
+                    <span>{a.aid}</span>
+                    <span>{a.title}</span>
+                    <span className={styles.status}>{a.status}</span>
+                    {a.status === "completed" ? (
+                      <button
+                        className="button"
+                        data-size="small"
+                        onClick={() =>
+                          handleStatusUpdateClick(a.aid, "in progress")
+                        }
+                      >
+                        Mark as In Progress
+                      </button>
+                    ) : (
+                      <button
+                        className="button"
+                        data-size="small"
+                        onClick={() =>
+                          handleStatusUpdateClick(a.aid, "completed")
+                        }
+                      >
+                        Mark as Completed
+                      </button>
+                    )}
+                  </div>
+                </li>
+              );
+            })}
       </ol>
     </section>
   );
