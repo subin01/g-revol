@@ -7,12 +7,17 @@ export default function Account() {
   const { isLoaded, isSignedIn, user } = useUser();
 
   if (!isLoaded || !isSignedIn) {
-    return <h1>Not loaded or not Signed in!</h1>;
+    return (
+      <>
+        <h1>Not loaded or not Signed in!</h1>
+        <a href=".">Refresh</a>
+      </>
+    );
   }
 
   return (
     <>
-      <Actions uid={user?.id} />
+      <Actions uid={user?.id} displayName={user?.displayName} />
     </>
   );
 }

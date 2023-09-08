@@ -6,7 +6,7 @@ import { useCollection, useDocumentData } from "react-firebase-hooks/firestore";
 import { db } from "@/firebase/init";
 import styles from "./index.module.scss";
 
-export default function Actions({ uid }) {
+export default function Actions({ uid, displayName }) {
   // const [value, loading, error] = useCollection(collection(db, "goals"), {
   //   snapshotListenOptions: { includeMetadataChanges: true },
   // });
@@ -27,7 +27,9 @@ export default function Actions({ uid }) {
 
   return (
     <section className={styles.actions}>
-      <pre>UID: {JSON.stringify(uid)}</pre>
+      <pre>
+        UID: {JSON.stringify(uid)}, {displayName}
+      </pre>
       {error && <strong>Error: {JSON.stringify(error)}</strong>}
       {loading && <span>Loading...</span>}
       <hr />
