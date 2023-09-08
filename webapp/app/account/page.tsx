@@ -14,17 +14,12 @@ import SignOut from "@/app/components/SignOut";
 
 export default function AccountPage() {
   return (
-    <main>
-      {/* <User /> */}
-      {/* <SignInFirebaseWithClerk /> */}
+    <>
       <InitSignInWithClerk />
-      <hr />
-      {/* <SignOut /> */}
-      <SignOutButton />
 
       <hr />
 
       <Listing />
-    </main>
+    </>
   );
 }

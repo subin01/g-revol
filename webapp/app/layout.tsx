@@ -16,7 +16,12 @@ const myFont = localFont({
     {
       path: "./styles/HelveticaNowDisplay-Bold.woff2",
       weight: "700",
-      style: "italic",
+      style: "normal",
+    },
+    {
+      path: "./styles/HelveticaNowDisplay-ExtraBold.woff2",
+      weight: "800",
+      style: "normal",
     },
   ],
 });
@@ -38,7 +43,7 @@ export default function RootLayout({
           <Suspense>
             <Header />
           </Suspense>
-          {children}
+          <main>{children}</main>
         </body>
       </html>
     </ClerkProvider>

@@ -28,7 +28,7 @@ export default function InitSignInWithClerk() {
 
   return (
     <div>
-      Init Sign In with Clerk
+      Initialize - Sign In to Firestore with Clerk
       {/* <button onClick={signInWithClerk}> Signin with Clerk</button> */}
     </div>
   );

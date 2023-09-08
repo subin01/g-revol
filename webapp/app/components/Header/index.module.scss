@@ -1,5 +1,5 @@
 .header {
-  background: rgba(255, 255, 255, 0.8);
+  background: var(--color-bg-trans-8);
   backdrop-filter: blur(10px) saturate(150%);
   opacity: 0.9;
   position: fixed;
@@ -12,7 +12,7 @@
   justify-content: space-between;
   align-items: center;
 
-  > div {
+  .wrap {
     width: var(--max-width);
     margin: 0 auto;
 
@@ -20,16 +20,30 @@
     justify-content: space-between;
     align-items: center;
   }
-}
 
-.logo {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: url("/Crypto G Black.svg") no-repeat;
-  background-size: 4rem;
-  height: 4rem;
-  width: auto;
-  padding-left: 5rem;
-  font-weight: var(--font-weight-bold);
+  .logo {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--spacing-1);
+    align-items: center;
+    height: 4rem;
+    width: auto;
+
+    svg {
+      path {
+        fill: currentColor;
+      }
+    }
+  }
+
+  a {
+    text-decoration: none;
+    font-weight: var(--font-weight-xbold);
+    text-transform: uppercase;
+  }
+
+  nav {
+    display: flex;
+    gap: var(--spacing-2);
+  }
 }

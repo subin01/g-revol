@@ -7,7 +7,7 @@ import data from "@/app/data.json";
 
 export default function HomePage() {
   return (
-    <main>
+    <>
       <h1 className="h3">
         Our web3 vision to create a decentralised impact economy, where the good
         you do for people and planet has currency, is here. <br /> <br />
@@ -19,6 +19,6 @@ export default function HomePage() {
           <Goal key={i} goal={goal} />
         ))}
       </div>
-    </main>
+    </>
   );
 }

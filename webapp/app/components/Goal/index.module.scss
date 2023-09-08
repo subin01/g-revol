@@ -12,7 +12,7 @@
     height: 20rem;
 
     img {
-      transition: scale cubic-bezier(0, 0, 0.2, 1) 500ms;
+      transition: scale var(--transition-timing-1) var(--transition-duration-1);
     }
   }
 

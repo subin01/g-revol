@@ -50,27 +50,23 @@ export default function Page({ params }: { params: { id: string } }) {
 
   return (
     <>
-      <Header />
+      {project ? (
+        <>
+          <Item project={project} />
+          <div className="box">
+            <h2>About the project (phase 2)</h2>
 
-      <main>
-        {project ? (
-          <>
-            <Item project={project} />
-            <div className="box">
-              <h2>About the project (phase 2)</h2>
-
-              <div>
-                {" "}
-                <h4>We hit a milestone!</h4>
-                <br />
-                blah blah blah blah blah blahblah blah blahblah blah blah...
-              </div>
+            <div>
+              {" "}
+              <h4>We hit a milestone!</h4>
+              <br />
+              blah blah blah blah blah blahblah blah blahblah blah blah...
             </div>
-          </>
-        ) : (
-          <h1>Not found!</h1>
-        )}
-      </main>
+          </div>
+        </>
+      ) : (
+        <h1>Not found!</h1>
+      )}
     </>
   );
 }

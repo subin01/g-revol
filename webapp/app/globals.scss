@@ -1,5 +1,5 @@
 :root {
-  --max-width: 1320px;
+  --max-width: 66rem; //1320px
 
   --spacing-1: 1rem;
   --spacing-2: 1.5rem;
@@ -17,25 +17,35 @@
 
   --font-weight-regular: 500;
   --font-weight-bold: 700;
+  --font-weight-xbold: 800;
 
   --color-fg: black;
   --color-bg: white;
 
-  --color-theme-1: #a593ff;
-  --color-theme-2: #7c62ff;
-  --color-theme-2: #386efa;
-  --color-theme-3: #beb095;
-  --color-theme-4: #fffb96;
-  --color-theme-5: #fcc;
-  --color-theme-6: #ff6c6c;
+  --color-bg-trans-9: color-mix(in srgb, var(--color-bg), transparent 90%);
+  --color-bg-trans-8: color-mix(in srgb, var(--color-bg), transparent 80%);
+
+  --color-accent-1: #a593ff;
+  --color-accent-2: #7c62ff;
+  --color-accent-2: #386efa;
+  --color-accent-3: #beb095;
+  --color-accent-4: #fffb96;
+  --color-accent-5: #fcc;
+  --color-accent-6: #ff6c6c;
   --color-neutral-1: #a8a8a8;
+
+  --transition-timing-1: cubic-bezier(0, 0, 0.2, 1);
+  --transition-duration-1: 500ms;
 }
 
 @media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+  :root {
     --color-fg: white;
     --color-bg: black;
+  }
+
+  html {
+    color-scheme: dark;
   }
 }
 
@@ -48,6 +58,8 @@ html {
   padding: 0;
   font-size: 20px;
   line-height: 1;
+  background: var(--color-bg);
+  color: var(--color-fg);
 }
 
 body {
@@ -55,8 +67,16 @@ body {
   padding: 0;
   font-size: var(--font-size-6);
   font-weight: var(--font-weight-regular);
-  background: var(--color-bg);
-  color: var(--color-fg);
+}
+
+a {
+  color: currentColor;
+  transition: all var(--transition-timing-1) var(--transition-duration-1);
+
+  &:hover,
+  &:focus {
+    color: var(--color-accent-6);
+  }
 }
 
 h1,
@@ -150,14 +170,12 @@ p {
 }
 
 .button {
-  border: 3px solid var(--color-fg);
+  border: 0.2rem solid var(--color-fg);
   margin-top: 0;
   margin-bottom: 0;
-  // margin-right: var(--spacing-4);
   padding: var(--spacing-1) var(--spacing-4);
   color: currentColor;
   font-weight: var(--font-weight-bold);
-
   text-decoration: none;
   border-radius: 3rem;
   padding-inline: 3rem;
@@ -193,5 +211,23 @@ main {
 
   h4 {
     margin-top: 0;
+  }
+}
+
+.page__signin {
+}
+
+.cols-2 {
+  display: flex;
+  justify-content: space-between;
+
+  .col-1,
+  .col-2 {
+    min-width: 50%;
+    display: flex;
+    align-items: center;
+  }
+  .col-2 {
+    justify-content: flex-end;
   }
 }

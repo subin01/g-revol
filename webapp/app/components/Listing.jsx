@@ -15,7 +15,7 @@ export default function Listing() {
       {loading && <span>Collection: Loading...</span>}
       {value && (
         <div>
-          Collection: <br />
+          Firebase DB - Collection: <br />
           {value.docs.map((doc) => (
             <pre key={doc.id}>{JSON.stringify(doc.data())}, </pre>
           ))}
