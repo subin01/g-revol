@@ -30,7 +30,12 @@ export default function Actions({ uid, displayName }) {
       <pre>
         UID: {JSON.stringify(uid)}, {displayName}
       </pre>
-      {error && <strong>Error: {JSON.stringify(error)}</strong>}
+      {error && (
+        <div>
+          <pre>Error: {JSON.stringify(error)}</pre>
+          <a href=".">Try again</a>
+        </div>
+      )}
       {loading && <span>Loading...</span>}
       <hr />
       <h2 className="h3">Actions</h2>

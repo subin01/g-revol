@@ -10,7 +10,7 @@ export default function Account() {
     return (
       <>
         <h1>Not loaded or not Signed in!</h1>
-        <a href=".">Refresh</a>
+        <a href=".">Try again</a>
       </>
     );
   }
