@@ -175,6 +175,7 @@ p {
   margin-bottom: 0;
   padding: var(--spacing-1) var(--spacing-4);
   color: currentColor;
+  font-size: inherit;
   font-weight: var(--font-weight-bold);
   text-decoration: none;
   border-radius: 3rem;
@@ -183,6 +184,18 @@ p {
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    color: var(--color-accent-6);
+  }
+
+  &[data-size="small"] {
+    font-size: 0.6em;
+    border-width: 0.1rem;
+    padding: var(--spacing-1) var(--spacing-3);
+  }
 }
 
 .button.secondary {

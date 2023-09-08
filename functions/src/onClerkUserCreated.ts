@@ -48,11 +48,26 @@ export async function onClerkUserCreated(req: any, res: any) {
       return;
     }
 
+    // prettier-ignore
+    const sampleActions = {
+      "a001" : {
+        aid: "a001",
+        status: "assigned",
+        title: "Sample Action"
+      },
+      "a002": {
+        aid: "a002",
+        status: "assigned",
+        title: "Plant 10 Tress"
+      }
+    }
+
     const userData = {
       id: userId,
       uid: userId,
       source: "clerk",
       profile: data,
+      actions: sampleActions,
     };
     const userRes = await userRef.set(userData, { merge: true });
 
