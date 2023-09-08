@@ -26,6 +26,8 @@
   --color-bg-trans-9: color-mix(in srgb, var(--color-bg), transparent 90%);
   --color-bg-trans-8: color-mix(in srgb, var(--color-bg), transparent 80%);
 
+  --color-surface-1: color-mix(in srgb, var(--color-fg), transparent 90%);
+
   --color-accent-1: #a593ff;
   --color-accent-2: #7c62ff;
   --color-accent-2: #386efa;
@@ -68,6 +70,7 @@ body {
   padding: 0;
   font-size: var(--font-size-6);
   font-weight: var(--font-weight-regular);
+  overflow: scroll;
 }
 
 a {
@@ -87,6 +90,7 @@ h4,
 h5,
 h6 {
   font-size: var(--font-size-6);
+  margin: 0 0 0.8em 0;
 }
 
 .h1 {
@@ -215,17 +219,16 @@ img {
 
 main {
   width: var(--max-width);
-  margin-top: 5rem;
+  margin-top: var(--spacing-6);
   margin-inline: auto;
-  padding-block: 1rem;
 }
 
 .box {
-  margin-top: 7rem;
+  margin-top: var(--spacing-5);
 
   > div {
-    padding: 1rem;
-    background: #1f1f1f;
+    padding: var(--spacing-2);
+    background: var(--color-surface-1);
     border-radius: 0.5rem;
   }
 

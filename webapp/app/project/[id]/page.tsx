@@ -54,13 +54,13 @@ export default function Page({ params }: { params: { id: string } }) {
         <>
           <Item project={project} />
           <div className="box">
-            <h2>About the project (phase 2)</h2>
+            <h2 className="h2">About the project</h2>
 
             <div>
-              {" "}
-              <h4>We hit a milestone!</h4>
-              <br />
-              blah blah blah blah blah blahblah blah blahblah blah blah...
+              <h4 className="h5">We hit a milestone!</h4>
+              <p>
+                blah blah blah blah blah blahblah blah blahblah blah blah...
+              </p>
             </div>
           </div>
         </>

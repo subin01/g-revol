@@ -10,6 +10,7 @@
     border-radius: 0.25rem;
     width: 20rem;
     height: 20rem;
+    margin-bottom: var(--spacing-2);
 
     img {
       transition: scale var(--transition-timing-1) var(--transition-duration-1);

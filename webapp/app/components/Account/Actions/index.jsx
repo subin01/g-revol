@@ -38,7 +38,7 @@ export default function Actions({ uid, displayName }) {
       )}
       {loading && <span>Loading...</span>}
       <hr />
-      <h2 className="h3">Actions</h2>
+      <h2 className="h3">Your Actions</h2>
 
       <ol>
         {user &&
