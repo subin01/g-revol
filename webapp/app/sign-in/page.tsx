@@ -7,7 +7,7 @@ export default function Page() {
         <h1 className="h2">Welcome to the G&nbsp;Revolution.</h1>
       </div>
       <div className="col-2">
-        <SignIn redirectUrl="/account" />
+        <SignIn />
       </div>
     </div>
   );

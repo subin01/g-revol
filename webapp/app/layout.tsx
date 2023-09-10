@@ -37,7 +37,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ClerkProvider publishableKey="pk_test_dmlhYmxlLWdob3VsLTMyLmNsZXJrLmFjY291bnRzLmRldiQ">
+    <ClerkProvider>
       <html lang="en">
         <body className={myFont.className}>
           <Suspense>
