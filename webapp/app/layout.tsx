@@ -4,7 +4,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 
 import "./globals.scss";
 import localFont from "next/font/local";
-import Header from "./components/Header";
+import Header from "@/components/Header";
 
 const myFont = localFont({
   src: [

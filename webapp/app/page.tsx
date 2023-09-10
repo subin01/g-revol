@@ -2,7 +2,7 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import Link from "next/link";
 
-import Goal from "@/app/components/Goal";
+import Goal from "@/components/Goal";
 import data from "@/app/data.json";
 
 export default function HomePage() {

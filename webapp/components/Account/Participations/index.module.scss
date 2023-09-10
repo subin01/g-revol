@@ -1,0 +1,24 @@
+.actions {
+  li {
+    margin-left: 0.5em;
+    padding-left: 0.5em;
+    margin-bottom: 1em;
+
+    > div {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    &.completed span {
+      // opacity: 0.4;
+      color: var(--color-accent-3);
+    }
+  }
+
+  span,
+  .status {
+    text-transform: capitalize;
+  }
+}

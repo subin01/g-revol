@@ -15,7 +15,7 @@ function Item({ project }: { project: any }) {
         />
       </div>
       <h3 className="h5">{project.title}</h3>
-      <Link href={`/project/${project.id}`} className="button">
+      <Link href={`/goals/${project.id}`} className="button">
         Buy Now
       </Link>
     </article>

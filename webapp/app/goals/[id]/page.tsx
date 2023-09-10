@@ -2,7 +2,7 @@ import { UserButton, SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
 import Link from "next/link";
 
 import data from "@/app/data.json";
-import Header from "@/app/components/Header";
+import Header from "@/components/Header";
 
 interface IProject {
   id: string;
@@ -54,7 +54,7 @@ export default function Page({ params }: { params: { id: string } }) {
         <>
           <Item project={project} />
           <div className="box">
-            <h2 className="h2">About the project</h2>
+            <h2 className="h2">About the Goal</h2>
 
             <div>
               <h4 className="h5">We hit a milestone!</h4>
