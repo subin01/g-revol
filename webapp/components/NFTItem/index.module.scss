@@ -1,11 +1,4 @@
-.goal {
-  margin-bottom: var(--spacing-6);
-  .heading {
-    display: flex;
-    gap: var(--spacing-3);
-    text-transform: capitalize;
-  }
-
+.nft {
   .imageWrap {
     overflow: hidden;
     border-radius: 0.25rem;
@@ -18,9 +11,13 @@
     }
   }
 
-  article:hover {
+  &:hover {
     img {
       scale: 1.2;
     }
+  }
+
+  a {
+    width: 100%;
   }
 }

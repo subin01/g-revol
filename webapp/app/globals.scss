@@ -231,13 +231,9 @@ main {
 }
 
 .box {
-  margin-top: var(--spacing-5);
-
-  > div {
-    padding: var(--spacing-2);
-    background: var(--color-surface-1);
-    border-radius: 0.5rem;
-  }
+  padding: var(--spacing-2);
+  background: var(--color-surface-1);
+  border-radius: 0.5rem;
 
   h4 {
     margin-top: 0;

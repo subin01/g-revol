@@ -1,9 +1,14 @@
 "use client";
 
-import { collection, doc, setDoc } from "firebase/firestore";
-import { useCollection, useDocumentData } from "react-firebase-hooks/firestore";
+import {
+  db,
+  collection,
+  doc,
+  setDoc,
+  useCollection,
+  useDocumentData,
+} from "@/firebase/init";
 
-import { db } from "@/firebase/init";
 import styles from "./index.module.scss";
 
 export default function Actions({ uid, displayName }) {

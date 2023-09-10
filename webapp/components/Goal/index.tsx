@@ -1,50 +1,43 @@
+"use client";
+
 import { UserButton } from "@clerk/nextjs";
 import styles from "./index.module.scss";
 import Link from "next/link";
+import GoalDetails from "@/components/GoalDetails";
+import NftItem from "@/components/NFTItem";
 
-function Item({ project }: { project: any }) {
-  const size = "760/760";
+export function NFTs({ nfts }) {
   return (
-    <article>
-      <div className={styles.imageWrap}>
-        <img
-          className={styles.img}
-          width="400"
-          height="400"
-          src={`${project.image}${size}`}
-        />
-      </div>
-      <h3 className="h5">{project.title}</h3>
-      <Link href={`/goals/${project.id}`} className="button">
-        Buy Now
-      </Link>
-    </article>
+    <div className="grid-3">
+      {nfts.map((nft, i) => (
+        <NftItem key={i} nft={nft} />
+      ))}
+    </div>
   );
 }
 
-interface IProject {
+interface Inft {
   id: string;
   title: string;
   image: string;
 }
 
 interface IGoal {
-  id: string;
+  gid: string;
   title: string;
-  projects: IProject[];
+  nfts: Inft[];
 }
 
 export default function Goal({ goal }: { goal: IGoal }) {
   return (
     <section className={styles.goal}>
       <h2 className={`${styles.heading} h3`}>
-        <span>{goal.id}</span> <span>{goal.title}</span>
+        <span>{goal.gid}</span> <span>{goal.title}</span>
       </h2>
-      <div className="grid-3">
-        {goal.projects.map((project, i) => (
-          <Item key={i} project={project} />
-        ))}
-      </div>
+      <NFTs nfts={goal.nfts} />
+      <Link href={`/goals/${goal.gid}`} className="button">
+        Learn More
+      </Link>
     </section>
   );
 }

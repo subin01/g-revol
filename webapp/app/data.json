@@ -1,49 +1,49 @@
 {
   "goals": [
     {
-      "id": "G14",
+      "gid": "g001",
       "title": "Clean Oceans",
-      "projects": [
+      "nfts": [
         {
           "id": "1",
-          "gid": "G14",
+          "gid": "g001",
           "title": "Sea bin",
           "image": "https://picsum.photos/id/881/"
         },
         {
           "id": "2",
-          "gid": "G14",
+          "gid": "g001",
           "title": "Blah blah",
           "image": "https://picsum.photos/id/1069/"
         },
         {
           "id": "3",
-          "gid": "G14",
+          "gid": "g001",
           "title": "Blah blah",
           "image": "https://picsum.photos/id/1041/"
         }
       ]
     },
     {
-      "id": "G15",
+      "gid": "g002",
       "title": "Reforestation",
-      "projects": [
+      "nfts": [
         {
           "id": "4",
-          "gid": "G15",
+          "gid": "g002",
           "title": "Blah blah",
           "image": "https://picsum.photos/id/704/"
         },
         {
           "id": "5",
-          "gid": "G15",
+          "gid": "g002",
 
           "title": "Blah blah",
           "image": "https://picsum.photos/id/571/"
         },
         {
           "id": "6",
-          "gid": "G15",
+          "gid": "g002",
 
           "title": "Blah blah",
           "image": "https://picsum.photos/id/634/"
@@ -52,24 +52,24 @@
     },
 
     {
-      "id": "G13",
+      "gid": "g003",
       "title": "Climate Action",
-      "projects": [
+      "nfts": [
         {
           "id": "7",
-          "gid": "G16",
+          "gid": "g003",
           "title": "Blah blah",
           "image": "https://picsum.photos/id/830/"
         },
         {
           "id": "8",
-          "gid": "G16",
+          "gid": "g003",
           "title": "Blah blah",
           "image": "https://picsum.photos/id/906/"
         },
         {
           "id": "9",
-          "gid": "G16",
+          "gid": "g003",
           "title": "Blah blah",
           "image": "https://picsum.photos/id/287/"
         }

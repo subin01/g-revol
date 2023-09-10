@@ -12,6 +12,14 @@ import { proxy, snapshot, subscribe, useSnapshot } from "valtio";
 import { watch, subscribeKey, devtools } from "valtio/utils";
 import { firebaseConfig } from "../firebase/config";
 
+// Just for export
+import { query, where, collection, doc, setDoc } from "firebase/firestore";
+import {
+  useCollection,
+  useCollectionData,
+  useDocumentData,
+} from "react-firebase-hooks/firestore";
+
 declare module "valtio" {
   function useSnapshot<T extends object>(p: T): T;
 }
@@ -63,4 +71,19 @@ subscribe(store, () => {
 
 const unsub = devtools(store, { name: "GRevol", enabled: true });
 
-export { app, store, db, auth, googleProvider, signOut };
+export {
+  app,
+  store,
+  db,
+  auth,
+  googleProvider,
+  signOut,
+  query,
+  where,
+  collection,
+  doc,
+  setDoc,
+  useCollection,
+  useCollectionData,
+  useDocumentData,
+};
