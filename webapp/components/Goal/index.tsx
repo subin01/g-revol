@@ -1,16 +1,14 @@
 "use client";
 
-import { UserButton } from "@clerk/nextjs";
 import styles from "./index.module.scss";
 import Link from "next/link";
-import GoalDetails from "@/components/GoalDetails";
 import NftItem from "@/components/NFTItem";
 
-export function NFTs({ nfts }) {
+export function NFTs({ nfts }: { nfts: Inft[] }) {
   return (
     <div className="grid-3">
-      {nfts.map((nft, i) => (
-        <NftItem key={i} nft={nft} />
+      {nfts.map((nft) => (
+        <NftItem key={nft.id} nft={nft} />
       ))}
     </div>
   );

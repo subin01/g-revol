@@ -46,7 +46,8 @@ export default function Page({ params }: { params: { gid: string } }) {
       <section className=" my-4">
         <h3 className="h3">NFTS </h3>
         <div className="grid-3">
-          {goal.nfts && goal.nfts.map((nft: Inft) => <NFTItem nft={nft} />)}
+          {goal.nfts &&
+            goal.nfts.map((nft: Inft) => <NFTItem key={nft.id} nft={nft} />)}
         </div>
       </section>
 
