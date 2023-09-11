@@ -5,6 +5,7 @@ import { store, useSnapshot } from "@/firebase/init";
 export default function Projects({ gid }) {
   const projectsObj = useSnapshot(store.projects);
   const projects = Object.values(projectsObj);
+
   return (
     <section className={styles.goalDetails}>
       <h2>Projects</h2>
