@@ -4,8 +4,6 @@ import { useAuth } from "@clerk/nextjs";
 import { getAuth, signInWithCustomToken } from "firebase/auth";
 import { useState, useEffect } from "react";
 
-import { auth, googleProvider } from "@/firebase/init";
-
 export default function InitSignInWithClerk() {
   const { getToken } = useAuth();
 

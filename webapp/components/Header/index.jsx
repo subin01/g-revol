@@ -1,10 +1,18 @@
+"use client";
+
 import { UserButton, SignOutButton } from "@clerk/nextjs";
 import styles from "./index.module.scss";
 import Link from "next/link";
-
+import useScrollDirection from "@/hooks/useScrollDirection";
 export default function Header(props) {
+  const scrollDirection = useScrollDirection();
+
   return (
-    <header className={styles.header}>
+    <header
+      className={`${styles.header} ${
+        scrollDirection === "down" ? styles.hidden : ""
+      }`}
+    >
       <div className={styles.wrap}>
         <Link href="/" className={styles.logo}>
           <svg

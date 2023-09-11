@@ -1,29 +1,20 @@
-.goal {
+.goalDetails {
   margin-bottom: var(--spacing-6);
+
   .heading {
     display: flex;
     gap: var(--spacing-3);
-  }
 
-  .imageWrap {
-    overflow: hidden;
-    border-radius: 0.25rem;
-    width: 20rem;
-    height: 20rem;
-    margin-bottom: var(--spacing-2);
-
-    img {
-      transition: scale var(--transition-timing-1) var(--transition-duration-1);
+    span {
+      text-transform: capitalize;
     }
   }
+}
 
-  article:hover {
-    img {
-      scale: 1.2;
-    }
-  }
-
-  a {
-    width: 100%;
-  }
+.project {
+  padding: var(--spacing-2);
+  background: var(--color-surface-1);
+  border-radius: 0.5rem;
+  min-height: 14rem;
+  margin-bottom: var(--spacing-1);
 }

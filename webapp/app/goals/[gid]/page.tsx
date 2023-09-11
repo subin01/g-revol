@@ -5,6 +5,7 @@ import data from "@/app/data.json";
 import Header from "@/components/Header";
 
 import NFTItem from "@/components/NFTItem";
+import GoalDetails from "@/components/GoalDetails";
 
 interface Inft {
   id: string;
@@ -31,17 +32,7 @@ export default function Page({ params }: { params: { gid: string } }) {
 
   return (
     <div>
-      <h2 className="h2">About the Goal</h2>
-      <p>blah blah blah blah blah blahblah blah blahblah blah blah...</p>
-
-      <section className=" my-4">
-        <h3 className="h3">Projects </h3>
-        <div className="grid-3 ">
-          <article className="box">Project 1</article>
-          <article className="box">Project 2</article>
-          <article className="box">Project 3</article>
-        </div>
-      </section>
+      <GoalDetails gid={gid} />
 
       <section className=" my-4">
         <h3 className="h3">NFTS </h3>

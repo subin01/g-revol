@@ -1,11 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { getApp, getApps, initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
-import {
-  getAuth,
-  GoogleAuthProvider,
-  signInWithEmailAndPassword,
-} from "firebase/auth";
+import { getAuth } from "firebase/auth";
 
 import { onAuthStateChanged } from "firebase/auth";
 import { proxy, snapshot, subscribe, useSnapshot } from "valtio";
@@ -13,7 +8,16 @@ import { watch, subscribeKey, devtools } from "valtio/utils";
 import { firebaseConfig } from "../firebase/config";
 
 // Just for export
-import { query, where, collection, doc, setDoc } from "firebase/firestore";
+import {
+  getFirestore,
+  query,
+  where,
+  collection,
+  doc,
+  setDoc,
+  getDocs,
+} from "firebase/firestore";
+
 import {
   useCollection,
   useCollectionData,
@@ -35,34 +39,37 @@ const db = getFirestore();
 
 // const analytics = getAnalytics(app);
 
-const googleProvider = new GoogleAuthProvider();
+const store = proxy({
+  isLoading: true,
+  goals: {},
+  projects: {},
+  challenges: {},
+  actions: {},
+});
 
-const signOut = async () => {
-  try {
-    auth.signOut();
-    // router.push('/login')
-  } catch {
-    console.log("Failed to log out");
-  }
-};
-
-if (typeof window !== "undefined") {
-  // @ts-ignore
-  window.signin = () =>
-    // Replace with one of your Firebase auth users to easily signin/signout
-    signInWithEmailAndPassword(auth, "username1@user.com", "username1");
-  // @ts-ignore
-  window.signout = () => signOut(auth);
+async function getCollection(name = "goals") {
+  const obj = {};
+  const snap = await getDocs(collection(db, name));
+  snap.forEach((doc) => {
+    // @ts-ignore
+    obj[doc.id] = doc.data();
+  });
+  return obj;
 }
 
-let store = proxy({
-  currentUser: "unknown",
-});
+async function initializeStore() {
+  const goals = await getCollection("goals");
+  const projects = await getCollection("projects");
+  const challenges = await getCollection("challenges");
+  const actions = await getCollection("actions");
 
-onAuthStateChanged(auth, (firebaseUser) => {
-  // @ts-ignore
-  store.currentUser = firebaseUser || null;
-});
+  store.goals = goals;
+  store.projects = projects;
+  store.challenges = challenges;
+  store.actions = actions;
+  store.isLoading = false;
+}
+initializeStore();
 
 subscribe(store, () => {
   const snap = snapshot(store);
@@ -74,10 +81,9 @@ const unsub = devtools(store, { name: "GRevol", enabled: true });
 export {
   app,
   store,
+  useSnapshot,
   db,
   auth,
-  googleProvider,
-  signOut,
   query,
   where,
   collection,
