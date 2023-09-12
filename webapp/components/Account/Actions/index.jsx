@@ -11,7 +11,7 @@ import {
 
 import styles from "./index.module.scss";
 
-export default function Actions({ uid, displayName }) {
+export default function Actions({ uid }) {
   // const [value, loading, error] = useCollection(collection(db, "goals"), {
   //   snapshotListenOptions: { includeMetadataChanges: true },
   // });
@@ -32,9 +32,7 @@ export default function Actions({ uid, displayName }) {
 
   return (
     <section className={styles.actions}>
-      <pre>
-        UID: {JSON.stringify(uid)}, {displayName}
-      </pre>
+      <pre>UID: {JSON.stringify(uid)}</pre>
       {error && (
         <div>
           <pre>Error: {JSON.stringify(error)}</pre>

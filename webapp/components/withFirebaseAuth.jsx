@@ -2,7 +2,7 @@
 
 import { useAuth } from "@clerk/nextjs";
 import { getAuth, signInWithCustomToken } from "firebase/auth";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Children, cloneElement } from "react";
 import { store, useSnapshot } from "@/firebase/init";
 
 //delay func
@@ -29,35 +29,46 @@ const retryWithDelay = async (
   }
 };
 
-const withFirebaseAuth = (Component) => (props) => {
+export default function WithFirebaseAuth({ children }) {
   const snap = useSnapshot(store);
   const { getToken } = useAuth();
   const [error, setError] = useState(false);
 
-  useEffect(async () => {
-    const signInWithClerkToken = async () => {
-      const auth = getAuth();
-      const token = await getToken({ template: "integration_firebase" });
-      // @ts-ignore
-      const userCredentials = await signInWithCustomToken(auth, token);
-      console.log("withFirebaseAuth User ::::::", userCredentials.user);
-      store.firebaseUser = userCredentials.user;
-    };
+  async function signInWithClerkToken() {
+    if (snap.firebaseUser) return;
 
+    const auth = getAuth();
+    const token = await getToken({ template: "integration_firebase" });
+    // @ts-ignore
+    const userCredentials = await signInWithCustomToken(auth, token);
+    console.log("WithFirebaseAuth User ::::::", userCredentials.user);
+    store.firebaseUser = userCredentials.user;
+  }
+
+  async function initSignIn() {
+    await retryWithDelay(signInWithClerkToken());
+  }
+
+  useEffect(() => {
     if (!snap.firebaseUser) {
       try {
-        await retryWithDelay(signInWithClerkToken());
+        initSignIn();
       } catch (e) {
-        console.log("withFirebaseAuth Error :::", e);
+        console.log("WithFirebaseAuth Error :::", e);
         setError(true);
       }
     }
-  }, []);
+  }, [error]);
 
-  if (snap.firebaseUser)
-    return <Component {...props} user={snap.firebaseUser} />;
+  const renderChildren = () => {
+    return Children.map(children, (child) => {
+      return cloneElement(child, {
+        user: snap.firebaseUser,
+      });
+    });
+  };
+
+  if (snap.firebaseUser) return renderChildren();
 
   return !error ? "Loading..." : "Error";
-};
-
-export default withFirebaseAuth;
+}
