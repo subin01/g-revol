@@ -18,8 +18,11 @@ const retryWithDelay = async (
   finalErr = "failed"
 ) => {
   try {
+    console.log("--- retryWithDelay-- retries:", retries);
     await fn();
   } catch (err) {
+    console.log("--- retryWithDelay-- err:", err);
+
     if (retries <= 0) {
       return Promise.reject(finalErr); // if no retries left throw error
     }
@@ -39,14 +42,13 @@ export default function WithFirebaseAuth({ children }) {
 
     const auth = getAuth();
     const token = await getToken({ template: "integration_firebase" });
-    // @ts-ignore
     const userCredentials = await signInWithCustomToken(auth, token);
-    console.log("WithFirebaseAuth User ::::::", userCredentials.user);
-    store.firebaseUser = userCredentials.user;
+    store.firebaseUser = userCredentials?.user || null;
+    console.log("WithFirebaseAuth User ::::::", userCredentials?.user);
   }
 
   async function initSignIn() {
-    await retryWithDelay(signInWithClerkToken());
+    await retryWithDelay(signInWithClerkToken);
   }
 
   useEffect(() => {
