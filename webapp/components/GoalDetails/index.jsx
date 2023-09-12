@@ -10,7 +10,7 @@ export default function GoalDetails({ gid }) {
   const goalsObj = snap.goals;
   const goal = goalsObj[gid];
 
-  if (snap.isLoading) return <div>Loading...</div>;
+  if (snap.isDataLoading) return <div>Loading...</div>;
 
   return (
     <section className={styles.goalDetails}>

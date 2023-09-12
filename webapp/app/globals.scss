@@ -76,7 +76,7 @@ body {
 
 a {
   color: currentColor;
-  transition: all var(--transition-timing-1) var(--transition-duration-1);
+  transition: color var(--transition-timing-1) var(--transition-duration-1);
 
   &:hover,
   &:focus {

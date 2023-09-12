@@ -40,7 +40,8 @@ const db = getFirestore();
 // const analytics = getAnalytics(app);
 
 const store = proxy({
-  isLoading: true,
+  firebaseUser: null,
+  isDataLoading: true,
   goals: {},
   projects: {},
   challenges: {},
@@ -67,7 +68,7 @@ async function initializeStore() {
   store.projects = projects;
   store.challenges = challenges;
   store.actions = actions;
-  store.isLoading = false;
+  store.isDataLoading = false;
 }
 initializeStore();
 

@@ -2,22 +2,14 @@
 
 import { useUser } from "@clerk/nextjs";
 import Actions from "./Actions";
+import withFirebaseAuth from "@/components/withFirebaseAuth";
 
-export default function Account() {
-  const { isLoaded, isSignedIn, user } = useUser();
-
-  if (!isLoaded || !isSignedIn) {
-    return (
-      <>
-        <h1>Not loaded or not Signed in!</h1>
-        <a href="/account">Try again</a>
-      </>
-    );
-  }
-
+function Account({ user }) {
   return (
     <>
-      <Actions uid={user?.id} displayName={user?.displayName} />
+      <Actions uid={user?.uid} displayName={user?.displayName} />
     </>
   );
 }
+
+export default withFirebaseAuth(Account);
