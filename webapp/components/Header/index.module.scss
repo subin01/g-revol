@@ -11,7 +11,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: all var(--transition-timing-1) var(--transition-duration-1);
+  transition: top var(--transition-timing-1) var(--transition-duration-1),
+    opacity var(--transition-timing-1) var(--transition-duration-1);
 
   &.hidden {
     top: -10rem;
