@@ -44,6 +44,22 @@ export default function RootLayout({
             <Header />
           </Suspense>
           <main>{children}</main>
+          <footer>
+            <div className="page-wrap my-6">
+              <p className="serif">ACKNOWLEDGEMENT OF COUNTRY</p>
+              <p>
+                We have much to learn from those who perhaps better understand
+                how to walk softly on this earth. The Good Empire team live and
+                work on the lands of the Peramangk and Kaurna people. Their
+                connection with the land, their innate culture of sustainability
+                is something we open our minds and hearts to embrace and
+                practise. We honour their traditions and respect their elders,
+                past, present and future. May we all together heal this
+                beautiful planet, and find harmony as one global human
+                community.
+              </p>
+            </div>
+          </footer>
         </body>
       </html>
     </ClerkProvider>

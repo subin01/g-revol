@@ -26,6 +26,8 @@
   --color-bg-trans-9: color-mix(in srgb, var(--color-bg), transparent 90%);
   --color-bg-trans-8: color-mix(in srgb, var(--color-bg), transparent 80%);
 
+  --color-fg-trans-5: color-mix(in srgb, var(--color-fg), transparent 50%);
+
   --color-surface-1: color-mix(in srgb, var(--color-fg), transparent 90%);
 
   --color-accent-1: #a593ff;
@@ -137,6 +139,12 @@ p {
   margin-bottom: 1em;
 }
 
+.serif {
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
 .mt-1 {
   margin-top: var(--spacing-1);
 }
@@ -173,17 +181,6 @@ p {
 }
 .my-6 {
   margin-block: var(--spacing-6);
-}
-
-.grid-3 {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--spacing-3);
-
-  @media (min-width: 768px) {
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: var(--spacing-4);
-  }
 }
 
 .button {
@@ -230,16 +227,6 @@ main {
   padding-inline: 3rem;
 }
 
-.box {
-  padding: var(--spacing-2);
-  background: var(--color-surface-1);
-  border-radius: 0.5rem;
-
-  h4 {
-    margin-top: 0;
-  }
-}
-
 .page__signin {
 }
 
@@ -256,4 +243,66 @@ main {
   .col-2 {
     justify-content: flex-end;
   }
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-3);
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--spacing-4);
+  }
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-3);
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--spacing-4);
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--spacing-2);
+  background: var(--color-surface-1);
+  border-radius: 0.5rem;
+  min-height: 14rem;
+  margin-bottom: var(--spacing-1);
+}
+
+.box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 0.25rem solid currentColor;
+  padding: var(--spacing-2);
+  margin-bottom: var(--spacing-2);
+
+  width: 100%;
+
+  h3 {
+    margin-bottom: 0;
+  }
+}
+
+.goal-title {
+  text-transform: capitalize;
+}
+
+.page-wrap {
+  margin-inline: auto;
+  padding-inline: 3rem;
+  max-width: var(--max-width);
+}
+
+footer {
+  color: var(--color-fg-trans-5);
 }

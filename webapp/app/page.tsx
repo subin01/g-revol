@@ -1,9 +1,4 @@
-import Image from "next/image";
-import styles from "./page.module.css";
-import Link from "next/link";
-
-import Goal from "@/components/Goal";
-import data from "@/app/data.json";
+import Goals from "@/components/Goals";
 
 export default function HomePage() {
   return (
@@ -14,10 +9,8 @@ export default function HomePage() {
         Welcome to the G Revolution.
       </h1>
 
-      <div className="my-6">
-        {data.goals.map((goal, i) => (
-          <Goal key={i} goal={goal} />
-        ))}
+      <div className="my-4">
+        <Goals />
       </div>
     </>
   );

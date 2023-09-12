@@ -9,11 +9,11 @@ export default function Projects({ gid }) {
     projects = Object.values(projectsObj).filter((c) => c.gid === gid);
   }
   return (
-    <section>
-      <h2 className="h5">Projects</h2>
+    <section className={styles.goalDetails}>
+      <h2 className="h3">Projects</h2>
       <div className="grid-3">
         {projects?.map((p) => (
-          <article key={p.pid} className={`${styles.project} card`}>
+          <article key={p.pid} className={styles.project}>
             <h3 className="h3">{p.title}</h3>
             {/* <Link href={`/projects/${p.pid}`}>Learn more</Link> */}
           </article>

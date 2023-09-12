@@ -35,14 +35,14 @@ export default function Page({ params }: { params: { gid: string } }) {
       <GoalDetails gid={gid} />
 
       <section className=" my-4">
-        <h3 className="h3">NFTS </h3>
+        <h3 className="h5">NFTS </h3>
         <div className="grid-3">
           {goal.nfts &&
             goal.nfts.map((nft: Inft) => <NFTItem key={nft.id} nft={nft} />)}
         </div>
       </section>
 
-      <div className="box">
+      <div className="card">
         <h4 className="h5">We hit a milestone!</h4>
         <p>blah blah blah blah blah blahblah blah blahblah blah blah...</p>
       </div>
