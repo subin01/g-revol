@@ -44,6 +44,7 @@ export default function WithFirebaseAuth({ children }) {
     const token = await getToken({ template: "integration_firebase" });
     const userCredentials = await signInWithCustomToken(auth, token);
     store.firebaseUser = userCredentials?.user || null;
+    store.firebaseLogin = true;
     console.log("WithFirebaseAuth User ::::::", userCredentials?.user);
   }
 

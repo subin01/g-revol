@@ -15,7 +15,9 @@ import {
   collection,
   doc,
   setDoc,
+  getDoc,
   getDocs,
+  deleteField,
 } from "firebase/firestore";
 
 import {
@@ -40,7 +42,9 @@ const db = getFirestore();
 // const analytics = getAnalytics(app);
 
 const store = proxy({
+  firebaseLogin: false,
   firebaseUser: null,
+  user: null,
   isDataLoading: true,
   goals: {},
   projects: {},
@@ -70,11 +74,28 @@ async function initializeStore() {
   store.actions = actions;
   store.isDataLoading = false;
 }
+
 initializeStore();
 
 subscribe(store, () => {
   const snap = snapshot(store);
   console.log("store changed", snap);
+});
+
+subscribeKey(store, "firebaseLogin", async (status) => {
+  if (status) {
+    const snap = snapshot(store);
+
+    // @ts-ignore
+    const uid = snap?.firebaseUser?.uid;
+    const docRef = doc(db, "users", uid);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      // @ts-ignore
+      store.user = docSnap.data() || null;
+    }
+  }
 });
 
 const unsub = devtools(store, { name: "GRevol", enabled: true });
@@ -90,6 +111,7 @@ export {
   collection,
   doc,
   setDoc,
+  deleteField,
   useCollection,
   useCollectionData,
   useDocumentData,

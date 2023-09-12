@@ -50,15 +50,20 @@ export async function onClerkUserCreated(req: any, res: any) {
 
     // prettier-ignore
     const sampleActions = {
-      "a001" : {
-        aid: "a001",
+      "a1" : {
+        aid: "a",
         status: "assigned",
-        title: "Sample Action"
+        title: "Sample Action",
+        gid: 'g14',
+        cid: 'c1',
+        pid: 'p1'
       },
-      "a002": {
-        aid: "a002",
+      "a2": {
+        aid: "a2",
         status: "assigned",
-        title: "Plant 10 Tress"
+        title: "Plant 10 Tress",
+        gid: 'g14',
+        pid: 'p1'
       }
     }
 

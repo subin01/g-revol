@@ -5,13 +5,14 @@ import Link from "next/link";
 import { store, useSnapshot } from "@/firebase/init";
 import Projects from "./Projects";
 import Challenges from "./Challenges";
+import Loading from "@/app/loading";
 
 export default function GoalDetails({ gid }) {
   const snap = useSnapshot(store);
   const goalsObj = snap.goals;
   const goal = goalsObj[gid];
 
-  if (snap.isDataLoading) return <div>Loading...</div>;
+  if (snap.isDataLoading) return <Loading />;
 
   return (
     <section className={styles.goalDetails}>
